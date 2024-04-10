@@ -3,7 +3,7 @@ import ExpenseTracker from "./components/ExpenseTracker"
 function App() {
   return (
     <>
-      <div className="bg-bgd">
+      <div className="h-screen bg-bgd">
         <ExpenseTracker />
       </div>
     </>
