@@ -79,7 +79,7 @@ const ExpenseTracker = () => {
     // }, [list, finalAmt]);
 
     return (
-        <div className="w-screen p-6 bg-bgd text-code rounded shadow-md">
+        <div className="max-w-screen xl p-6 bg-bgd text-code rounded shadow-md">
             <h1 className="text-2xl font-bold mb-1">Expense Tracker</h1>
             <div className="border border-secondary mb-3"></div>
             <div className="mb-4">
