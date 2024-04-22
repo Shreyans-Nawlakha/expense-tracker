@@ -2,6 +2,12 @@ import { useState, useEffect } from 'react';
 
 const ExpenseTracker = () => {
     const [list, setList] = useState([]);
+    {/* data structure = [
+        {"desc":description,
+         "amt":amt,
+         "type":"income"}
+    ]*/}
+
     const [finalAmt, setFinalAmt] = useState(0);
     const [description, setDescription] = useState('');
     const [amount, setAmount] = useState('');
@@ -36,9 +42,13 @@ const ExpenseTracker = () => {
             // Update total with the new amount
             setFinalAmt(finalAmt + amountValue);
         }
-        const signAmount = "+" + amount;
-        console.log(signAmount);
-        setList([...list, { description, amount }]);
+        // create a new data variable to add the data along with type
+        const newValue = {
+            "desc": description,
+            "amt": amount,
+            "type": "income"
+        }
+        setList([...list, newValue]);
         handleClearInput();
         console.log('Income added');
 
@@ -52,9 +62,13 @@ const ExpenseTracker = () => {
             // Update total with the new amount
             setFinalAmt(finalAmt - amountValue);
         }
-        const signAmount = "-" + amount;
-        setList([...list, { description, amount }]);
-        console.log(signAmount);
+        // create a new data variable to add the data along with type
+        const newValue = {
+            "desc": description,
+            "amt": amount,
+            "type": "expense"
+        }
+        setList([...list, newValue]);
         handleClearInput();
         console.log('Expense added');
     }
@@ -151,10 +165,11 @@ const ExpenseTracker = () => {
                     {Array.from(list).map((entry, index) => (
                         <li key={index}>
                             <div className="border border-white"></div>
-                            <div className='flex justify-between gap-3 px-2'>
-                                <div>{entry.description}</div>
-                                <div>{entry.amount}</div>
-                            </div>
+                                {/* <div className="w-2 h-6" style={{ backgroundColor: entry["type"] === "income" ? "green" : "red" }}></div> */}
+                                <div className='flex justify-between gap-3 px-2'>
+                                    <div>{entry["desc"]}</div>
+                                    <div style={{ color: entry["type"] === "income" ? "green" : "red" }}>{entry["amt"]}</div>
+                                </div>
                         </li>
                     ))}
                 </ul>
