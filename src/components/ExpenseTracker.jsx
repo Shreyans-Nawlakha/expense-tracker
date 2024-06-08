@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for styling
+
 
 const ExpenseTracker = () => {
     const [list, setList] = useState([]);
@@ -11,6 +14,7 @@ const ExpenseTracker = () => {
     const [finalAmt, setFinalAmt] = useState(0);
     const [description, setDescription] = useState('');
     const [amount, setAmount] = useState('');
+
 
     // Retrieve list and finalAmt from LocalStorage
     useEffect(() => {
@@ -35,8 +39,12 @@ const ExpenseTracker = () => {
     };
 
     const handleAddIncome = () => {
+        // add check for empty fields
+        if (description.trim() === '' || amount.trim() === '') {
+            toast.error("Description or amount cannot be empty.");
+            return;
+            }
         // Implement logic to add income
-
         const amountValue = parseFloat(amount);
         if (!isNaN(amountValue)) {
             // Update total with the new amount
@@ -51,12 +59,16 @@ const ExpenseTracker = () => {
         setList([...list, newValue]);
         handleClearInput();
         console.log('Income added');
-
+        toast.success("Income added successfully!");
     };
 
     const handleAddExpense = () => {
+        // add check for empty fields
+        if (description.trim() === '' || amount.trim() === '') {
+            toast.error("Description or amount cannot be empty.");
+            return;
+        }
         // Implement logic to add expense
-
         const amountValue = parseFloat(amount);
         if (!isNaN(amountValue)) {
             // Update total with the new amount
@@ -71,29 +83,27 @@ const ExpenseTracker = () => {
         setList([...list, newValue]);
         handleClearInput();
         console.log('Expense added');
+        toast.success("Expense added successfully!");
     }
 
 
     const handleReset = () => {
         setFinalAmt(0);
-        setList([]);[]
+        setList([]);
+        toast.warn("All fields have been reset.");
+        []
     }
 
     const handleSave = () => {
         console.log("Saving data to LocalStorage:", list, finalAmt);
         localStorage.setItem('expenseList', JSON.stringify(list));
         localStorage.setItem('finalAmt', JSON.stringify(finalAmt));
+        toast.success("Changes saved successfully!");
     }
-
-    // // Save list and finalAmt to LocalStorage
-    // useEffect(() => {
-    //     console.log("Saving data to LocalStorage:", list, finalAmt);
-    //     localStorage.setItem('expenseList', JSON.stringify(list));
-    //     localStorage.setItem('finalAmt', JSON.stringify(finalAmt));
-    // }, [list, finalAmt]);
 
     return (
         <div className="max-w-screen xl p-6 bg-bgd text-code rounded shadow-md">
+            <ToastContainer position="top-right" autoClose={2000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
             <h1 className="text-2xl font-bold mb-1">Expense Tracker</h1>
             <div className="border border-secondary mb-3"></div>
             <div className="mb-4">
@@ -165,11 +175,11 @@ const ExpenseTracker = () => {
                     {Array.from(list).map((entry, index) => (
                         <li key={index}>
                             <div className="border border-white"></div>
-                                {/* <div className="w-2 h-6" style={{ backgroundColor: entry["type"] === "income" ? "green" : "red" }}></div> */}
-                                <div className='flex justify-between gap-3 px-2'>
-                                    <div>{entry["desc"]}</div>
-                                    <div style={{ color: entry["type"] === "income" ? "green" : "red" }}>{entry["amt"]}</div>
-                                </div>
+                            {/* <div className="w-2 h-6" style={{ backgroundColor: entry["type"] === "income" ? "green" : "red" }}></div> */}
+                            <div className='flex justify-between gap-3 px-2'>
+                                <div>{entry["desc"]}</div>
+                                <div style={{ color: entry["type"] === "income" ? "green" : "red" }}>{entry["amt"]}</div>
+                            </div>
                         </li>
                     ))}
                 </ul>
