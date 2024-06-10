@@ -1,13 +1,13 @@
-import ExpenseTracker from "./components/ExpenseTracker"
+import { ExpenseProvider } from './context/ExpenseContext';
+import ExpenseTracker from './components/ExpenseTracker';
 
-function App() {
+const App = () => {
   return (
-    <>
-      <div className="h-screen bg-bgd">
+    <ExpenseProvider>
         <ExpenseTracker />
-      </div>
-    </>
-  )
-}
+    </ExpenseProvider>
+  );
+};
 
-export default App
+export default App;
+
