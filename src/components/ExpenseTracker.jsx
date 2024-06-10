@@ -86,69 +86,70 @@ const ExpenseTracker = () => {
     return (
         <div className="min-h-screen max-w-screen xl p-6 bg-bgd text-code rounded shadow-md">
             <ToastContainer position="top-right" autoClose={2000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
-            <h1 className="text-2xl font-bold mb-1">Expense Tracker</h1>
-            <div className="border border-secondary mb-3"></div>
-            <div className="mb-4">
-                <div className="">Total Amount&nbsp;:</div>
-                <div className="text-2xl text-accent">₹{finalAmt}</div>
-            </div>
-            <div className="mb-4">
-                <label className="block text-gray-400 text-sm font-bold mb-2" htmlFor="description">
-                    Description:
-                </label>
-                <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="description"
-                    type="text"
-                    placeholder="Enter description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                />
-            </div>
-            <div className="mb-4">
-                <label className="block text-gray-400 text-sm font-bold mb-2" htmlFor="amount">
-                    Amount:
-                </label>
-                <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="amount"
-                    type="number"
-                    placeholder="Enter amount"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                />
-            </div>
-            <div className="grid grid-cols-2 gap-4 mb-3">
-                <button
-                    className=" bg-secondary text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    onClick={handleAddIncome}
-                >
-                    Income
-                </button>
-                <button
-                    className="bg-primary text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    onClick={handleAddExpense}
-                >
-                    Expense
-                </button>
-                <button
-                    className=" bg-green-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    onClick={handleSave}
-                >
-                    Save
-                </button>
-                <button
-                    className=" bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    onClick={handleReset}
-                >
-                    Reset
-                </button>
-
-            </div>
-            <div className="border border-secondary mb-3"></div>
             <div className="">
-                <Transaction />
-                {/* <h1 className="text-2xl font-bold mt-1 mb-4 ">Transaction History</h1>
+                <h1 className="text-2xl font-bold mb-1">Expense Tracker</h1>
+                <div className="border border-secondary mb-3"></div>
+                <div className="mb-4">
+                    <div className="">Total Amount&nbsp;:</div>
+                    <div className="text-2xl text-accent">₹{finalAmt}</div>
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-400 text-sm font-bold mb-2" htmlFor="description">
+                        Description:
+                    </label>
+                    <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="description"
+                        type="text"
+                        placeholder="Enter description"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-400 text-sm font-bold mb-2" htmlFor="amount">
+                        Amount:
+                    </label>
+                    <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="amount"
+                        type="number"
+                        placeholder="Enter amount"
+                        value={amount}
+                        onChange={(e) => setAmount(e.target.value)}
+                    />
+                </div>
+                <div className="grid grid-cols-2 gap-4 mb-3">
+                    <button
+                        className=" bg-secondary text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        onClick={handleAddIncome}
+                    >
+                        Income
+                    </button>
+                    <button
+                        className="bg-primary text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        onClick={handleAddExpense}
+                    >
+                        Expense
+                    </button>
+                    <button
+                        className=" bg-green-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        onClick={handleSave}
+                    >
+                        Save
+                    </button>
+                    <button
+                        className=" bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        onClick={handleReset}
+                    >
+                        Reset
+                    </button>
+
+                </div>
+                <div className="border border-secondary mb-3"></div>
+                <div className="">
+                    <Transaction />
+                    {/* <h1 className="text-2xl font-bold mt-1 mb-4 ">Transaction History</h1>
                 <ul>
                     <div className='flex justify-between gap-3 px-2'>
                         <div>Description</div>
@@ -166,6 +167,7 @@ const ExpenseTracker = () => {
                     ))}
                 </ul> */}
 
+                </div>
             </div>
         </div>
     );
