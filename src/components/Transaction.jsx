@@ -1,4 +1,5 @@
 import { useExpense } from '../context/expenseHooks';
+import ShareButton from './ShareButton';
 
 const Transaction = () => {
     const { list } = useExpense();
@@ -6,7 +7,10 @@ const Transaction = () => {
     return (
         <div>
             {/* Your Transaction component JSX */}
-            <h1 className="text-2xl font-bold mt-1 mb-4 ">Transaction History</h1>
+            <div className='mt-1 mb-4 flex items-center justify-between'>
+            <div className="text-2xl font-bold ">Transaction History</div>
+            <div className="text-2xl font-bold pt-2 "><ShareButton /></div>
+            </div>
             <ul>
                 <div className='flex justify-between gap-3 px-2'>
                     <div>Description</div>

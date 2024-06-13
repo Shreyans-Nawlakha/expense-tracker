@@ -6,6 +6,7 @@ import { useExpense } from '../context/expenseHooks';
 import Transaction from './Transaction';
 
 
+
 const ExpenseTracker = () => {
 
     // Access state and functions from the expense context
