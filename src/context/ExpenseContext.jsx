@@ -26,11 +26,11 @@ export const ExpenseProvider = ({ children }) => {
     }, []);
 
     // Function to save data to localStorage
-    const handleSave = () => {
-        localStorage.setItem('expenseList', JSON.stringify(list));
-        localStorage.setItem('finalAmt', JSON.stringify(finalAmt));
-        toast.success("Changes saved successfully!");
-    }
+    // const handleSave = () => {
+    //     localStorage.setItem('expenseList', JSON.stringify(list));
+    //     localStorage.setItem('finalAmt', JSON.stringify(finalAmt));
+    //     toast.success("Changes saved successfully!");
+    // }
 
     // Context value containing state and function to save data
     const contextValue = {
